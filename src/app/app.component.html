@@ -1,0 +1,50 @@
+
+<html>
+<head>
+  <title> Angulartutorial</title>
+</head>
+  <body>
+  <div  id = "headerdiv" class="container">
+    <div class="row">
+      <div  class="col-xs-12">
+       <h1 id="header"> Angulartutorial </h1>
+      </div>
+      
+      </div>
+  </div>
+  <div class="container">
+TUTORIAL
+    </div>
+<div class="container">
+  <!-- data binding-->
+  <p> <b>Input check event binding</b></p>
+  <input class="input" type="text" (input) = "getInput($event)"/>
+  <p>{{inputvalue}}</p>
+  <button class="btn btn-primary" (click) = "getData()" [disabled] = "!disablebutton">Data Binding</button>  
+  <p>{{status}}</p>
+<!-- two way binding-->
+<p> <b>Input check two way binding</b></p>
+<input class="input" type="text" [(ngModel)] = "inputvalue"/>
+<p>{{inputvalue}}</p>
+<!-- ngIf else -->
+<p *ngIf="disablebutton; else localref"> Button is enabled!</p>
+<ng-template #localref>
+<p >
+  Button is disabled: enabled after 2 sec!
+</p>
+</ng-template>
+<!-- ngStyle -->
+<p [ngStyle] = "{backgroundColor : getColor()}" >button staus for button {{id}} is {{buttonstatus}}</p>
+<p [ngStyle] = "{backgroundColor : getColor()}">button staus for button {{id}} is {{buttonstatus}}</p>
+</div> 
+<div class = "container">
+<button class="btn btn-primary" (click) = "datedisplay()">Date Display</button>
+<p *ngIf="showdate"> password  =  showdate</p>
+
+<p *ngFor="let date of todaysdate; let a = index" 
+[ngStyle] = "{backgroundColor : a >=4? 'red' : 'green'}"
+>{{date}}</p>
+</div>
+
+</body>
+</html>
